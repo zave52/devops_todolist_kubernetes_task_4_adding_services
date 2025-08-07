@@ -55,3 +55,20 @@ kubectl port-forward service/todoapp-service 8080:80 -n todoapp
 ```
 
 ### 3. Open browser at [http://localhost:8080](http://localhost:8080) address
+
+
+## Access app using NodePort service
+
+### 1. Verify that pods are running and ready
+
+```bash
+kubectl get pods -n todoapp
+```
+
+### 2. Create NodePort service
+
+```bash
+kubectl apply -f .infrastructure/nodePort.yml
+```
+
+### 3. Open browser at [http://localhost:30080](http://localhost:30080) address

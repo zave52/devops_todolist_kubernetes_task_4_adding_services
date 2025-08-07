@@ -37,3 +37,21 @@ kubectl exec -it busybox -n todoapp -- sh
 ```bash
 curl todoapp-service.todoapp.svc.cluster.local
 ```
+
+
+## Testing app using port-forwarding
+
+### 1. Verify that pods and ClusterIp service are running and ready
+
+```bash
+kubectl get pods -n todoapp
+kubectl get svc -n todoapp
+```
+
+### 2. Apply port-forwarding
+
+```bash
+kubectl port-forward service/todoapp-service 8080:80 -n todoapp
+```
+
+### 3. Open browser at [http://localhost:8080](http://localhost:8080) address
